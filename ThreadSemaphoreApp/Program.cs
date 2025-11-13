@@ -33,11 +33,11 @@ class Program
 
     private static async Task Worker(int id)
     {
-        Console.WriteLine($"Поток {id} ждёт когда за ним приедет дурка(ждёт разрешения семафора)");
+        Console.WriteLine($"Поток {id} ждёт разрешения семафора");
         await SemaphoreSlim.WaitAsync();
         try
         {
-            Console.WriteLine($"За потоком {id} приехала дурка. Генерируются 10 чисел... (записал данные и выходит)");
+            Console.WriteLine($"Поток {id} записал данные и выходит Генерируются 10 чисел... ");
 
             var rnd = new Random();
             var numbers = Enumerable.Range(0, 10).Select(_ => rnd.Next(1, 101)).ToArray();
